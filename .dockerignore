@@ -1,0 +1,17 @@
+.eslintrc
+.eslintignore
+
+.git
+.gitignore
+.github
+.idea
+
+node_modules
+src-tauri
+dist
+
+*.md
+LICENSE
+
+jest.config.ts
+*.log

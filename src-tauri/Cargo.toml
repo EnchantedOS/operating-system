@@ -1,0 +1,37 @@
+[package]
+name = "enchanted_os"
+version = "0.1.0"
+description = "Virtual Operating System for Enchanted Minecraft Server"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "enchanted_os_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.0.0-alpha", features = [] }
+
+[dependencies]
+tauri = { version = "2.0.0-alpha.20", features = [] }
+tauri-plugin-window = "2.0.0-alpha"
+tauri-plugin-shell = "2.0.0-alpha"
+tauri-plugin-updater = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v2" }
+serde_json = "1.0"
+
+[target."cfg(target_os = \"macos\")".dependencies]
+objc = "0.2.7"
+core-graphics = {version = "0.23.1" }
+core-foundation = { version = "0.9.3" }
+cocoa = { version = "0.25.0" }
+objc_id = {version = "0.1.1" }
+objc-foundation = { version = "0.1.1" }
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]

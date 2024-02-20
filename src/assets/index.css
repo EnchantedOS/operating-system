@@ -1,0 +1,341 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.44rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.hidesc::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hidesc {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html {
+  overflow: hidden;
+  background: #000000;
+}
+
+.padded-element {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+  env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #5f40b9;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Prevent scrolling on body and html */
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Make #app start right after the notch on iOS and stop right before the app controls */
+#app {
+  z-index: 1000;
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Make #app start right after the notch on iOS and stop right before the app controls */
+.desktop {
+  position: absolute;
+  top: env(safe-area-inset-top); /* Start after the notch */
+  left: 0;
+  right: 0;
+  bottom: env(safe-area-inset-bottom); /* Stop before the app controls */
+}
+
+.dock {
+  overflow: auto;
+  z-index: 10000 !important;
+}
+
+.pop {
+  animation: pop 0.58s infinite;
+  -webkit-animation: pop 0.58s infinite;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.95);
+  }
+}
+
+@-webkit-keyframes pop {
+  from {
+    -webkit-transform: scale(0.95);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(0.95);
+  }
+}
+
+.tilt {
+  -ms-transform: rotate(-25deg);
+  -webkit-transform: rotate(-25deg);
+  transform: rotate(-25deg);
+}
+
+.progress-loader {
+  width: 100%;
+  background: rgba(109, 109, 136, 0.6);
+  height: 6px;
+  margin-top: 150px;
+}
+
+.progress {
+  content: "";
+  width: 1px;
+  height: 6px;
+  background: #6500ff;
+  transition: 0.5s;
+  animation: loading1274 0.5s ease forwards;
+}
+
+.blurscreen {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes loading1274 {
+  0% {
+    width: 0%;
+  }
+
+  10% {
+    width: 10%;
+  }
+
+  50% {
+    width: 40%;
+  }
+
+  60% {
+    width: 60%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.fade-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.white-text-shadow {
+  text-shadow: 1px 0px 1px #fff;
+}
+
+.black-text-shadow {
+  text-shadow: 1px 1px 0px #000;
+}
+
+.craft-input {
+  @apply rounded-sm border-2 bg-zinc-200/30 py-1.5 placeholder-black/50 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-gray-500 focus:border-white/50 sm:text-sm sm:leading-6;
+}
+
+.small-craft-input {
+  @apply rounded-sm border-2 bg-zinc-200/30 py-0 px-1 placeholder-gray-400/50 shadow-sm focus:border-gray-500 z-40 focus:ring-2 focus:ring-gray-100 ring-2 ring-gray-500 border-white/50 sm:text-sm sm:leading-6;
+}
+
+.craft-button {
+  @apply bg-gray-500/20 px-2 py-1 font-bold border-2 border-gray-500/50 rounded-sm border-t-white/50 border-l-white/50 hover:ring-2 ring-black/40 active:border-white/90 hover:border-white/50 active:text-opacity-70;
+}
+
+.craft-frame-2 {
+  @apply bg-gray-500/10 px-2 py-1 font-bold border-2 border-gray-500/30 rounded-sm ring-2 ring-black/10;
+}
+
+.craft-item-frame {
+  @apply bg-gray-500/20  font-bold border-2 border-gray-500/50 rounded-sm border-t-white/50 border-l-white/50 ring-black/40;
+}
+
+.craft-empty-frame {
+  @apply bg-gray-500/10 px-2 py-1 font-bold border-2 border-gray-500/30 rounded-sm;
+}
+
+.craft-light-button {
+  @apply bg-gray-100/40 text-sm font-bold border-2 border-gray-500/50 rounded-sm hover:ring-2 ring-black/50 active:border-white disabled:ring-0 active:text-opacity-70;
+}
+
+.craft-item-button {
+  @apply bg-gray-500/20 text-sm font-bold border-2 border-gray-500/50 rounded-sm hover:ring-2 ring-black/50 active:border-white disabled:ring-0 active:text-opacity-70;
+}
+
+.disclosure-button {
+  @apply flex w-full justify-between rounded-sm bg-zinc-100/40 px-4 py-2 text-left text-sm font-medium hover:bg-zinc-200/40 focus:outline-none focus-visible:ring focus-visible:ring-zinc-500/75;
+}
+
+.craft-frame {
+  @apply bg-gray-500/20 px-2 py-1 font-bold border-2 border-gray-500/50 rounded-sm  border-b-white/50 border-r-white/50 ring-black/40;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.78);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 6px;
+  font-size: 11px !important;
+  backdrop-filter: blur(10px);
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: 52px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  backdrop-filter: blur(10px);
+}
+
+* {
+  font-family: Monocraft !important;
+}
+
+kbd {
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  font-size: xx-small !important;
+  border: #6b7280 solid 1px;
+  background: rgba(255, 255, 255, 0.13);
+  color: rgb(255, 255, 255);
+  font-family: Minecraftia;
+  display: inline-block;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}

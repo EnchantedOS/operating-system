@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "EnchantedOS",
+  "short_name": "EnchantedOS",
+  "start_url": "..",
+  "display": "standalone",
+  "background_color": "#181818",
+  "theme_color": "#006EDE",
+  "description": "EnchantedOS is a Minecraft Server Companion App.",
+  "icons": [{
+    "src": "logoCircle512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  },{
+    "src": "logoCircle64.png",
+    "sizes": "64x64",
+    "type": "image/png"
+  }]
+}
